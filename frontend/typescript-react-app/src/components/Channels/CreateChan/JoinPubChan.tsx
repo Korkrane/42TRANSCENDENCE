@@ -88,7 +88,7 @@ export default function JoinChan(props: JoinChanProps) {
 		setShow(true);
 	}
 
-	const getJoignableChans = () => {
+	function getJoignableChans() {
 
 		let url = "http://localhost:3000/api/chat/joinableChannels";
 
@@ -110,7 +110,7 @@ export default function JoinChan(props: JoinChanProps) {
 			})
 	}
 
-	const handleJoinPrivate = () => {
+	function handleJoinPrivate() {
 		let toast = new ToastAlerts(null);
 
 		axios.defaults.withCredentials = true;
@@ -136,8 +136,9 @@ export default function JoinChan(props: JoinChanProps) {
 				setSuccessfull(true);
 				handleCloseFinale();
 			})
-			.catch(error => {
+			.catch((error) => {
 				toast.notifyDanger("Failed to join the channel.");
+				console.error("error is " + error);
 			})
 	}
 
@@ -192,7 +193,6 @@ export default function JoinChan(props: JoinChanProps) {
 										type="text"
 										value={privateToJoin}
 										onChange={e => { setPrivateToJoin(e.target.value) }}
-										autoFocus
 										placeholder="channel"
 									/>
 								</Form.Group>
@@ -202,7 +202,6 @@ export default function JoinChan(props: JoinChanProps) {
 										type="password"
 										value={privatePass}
 										onChange={e => { setPrivatePass(e.target.value) }}
-										autoFocus
 										placeholder="******"
 									/>
 								</Form.Group>
