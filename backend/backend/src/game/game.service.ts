@@ -46,6 +46,8 @@ export class GameService {
 		if (user.total_games == total)
 			await this.userService.saveAchievement(user, "FirstGame")
 		else if (user.total_games == total)
+			await this.userService.saveAchievement(user, "5Row")
+		else if (user.total_games == total)
 			await this.userService.saveAchievement(user, "1000Game")
 	}
 

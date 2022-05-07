@@ -1,5 +1,5 @@
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
-import { IsAlphanumeric, IsEmail, IsNotEmpty, Length, MinLength, Matches } from 'class-validator';
+import { IsAlphanumeric, IsEmail, IsNotEmpty, Length, MinLength, Matches, IsAlpha } from 'class-validator';
 import { Match } from 'src/user/utils/match.decorator';
 
 @ApiTags('Users')
@@ -18,7 +18,7 @@ export class PatchNameDto {
 
     @IsNotEmpty()
     @Length(4, 15)
-    @IsAlphanumeric()
+    @IsAlpha()
     @ApiProperty()
     newlogin: string;
 }

@@ -45,7 +45,7 @@ export default function EditUsernameModal(props: EditUsernameModalProps) {
 				props.setUsername(inputValue)
 			})
 			.catch((error) => {
-				toast.notifySuccess("😢 Error while updating username");;
+				toast.notifyDanger("😢 Error while updating username");;
 			})
 		handleClose();
 	}
