@@ -20,6 +20,7 @@ export default function Channels(props: ChatProps) {
 	const [activeName, setActiveName] = React.useState("");
 	const [hide, setHide] = React.useState(false);
 	const [isBanned, setIsBanned] = React.useState(false);
+	const [login42, setLogin42] = React.useState("");
 
 	const [socket, setSocket] = React.useState(io("http://".concat(process.env.REACT_APP_IP).concat(":3000/chat"), { query: { username: username } }));
 
@@ -35,6 +36,7 @@ export default function Channels(props: ChatProps) {
 		axios.get(url)
 			.then(res => {
 				setUsername(res.data.login);
+				setLogin42(res.data.login42);
 				if (process.env.REACT_APP_IP != undefined && process.env.REACT_APP_IP != "")
 					setSocket(io("http://".concat(process.env.REACT_APP_IP).concat(":3000/chat"), { query: { username: username } }))
 				else
@@ -62,6 +64,7 @@ export default function Channels(props: ChatProps) {
 						<ListChannels
 							socket={socket}
 							login={username}
+							login42={login42}
 							setIsChan={setIsChan}
 							setHasPass={setHasPass}
 							setActiveID={setActiveID}

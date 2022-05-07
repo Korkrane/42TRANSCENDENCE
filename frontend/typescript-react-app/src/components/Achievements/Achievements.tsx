@@ -66,7 +66,7 @@ export default function Achievement(props: AchievementsProps) {
                             {isUnlocked("5Row") ? <svg className="checkmark"><BsCheckLg /></svg> : ""}
                             <div className="card-body">
                                 <h5 className="card-title">On fire</h5>
-                                <p className="card-text">Win 5 games in a row</p>
+                                <p className="card-text">Play 5 games</p>
                             </div>
                         </div>
 

@@ -49,28 +49,12 @@ export class GameService {
 			await this.userService.saveAchievement(user, "1000Game")
 	}
 
-	async trigger5RowAchievement(user: User) {
-
-		const userWithGamesDefined = await this.userRepository.findOne({
-			relations: ['games'],
-			where: { login: user.login }
-		});
-
-		const games = userWithGamesDefined.games.reverse();
-		for (let i = 0; i < 5; i++) {
-			if (games[i])
-				if (games[i].winner != user.id)
-					return;
-		}
-		await this.userService.saveAchievement(user, "5Row")
-	}
-
 	async triggerGameAchievement(winner: User, loser: User) {
 		await this.triggerTotalGamesAchievement(winner, 1);
 		await this.triggerTotalGamesAchievement(loser, 1);
 
-		await this.trigger5RowAchievement(winner);
-		await this.trigger5RowAchievement(loser);
+		await this.triggerTotalGamesAchievement(winner, 5);
+		await this.triggerTotalGamesAchievement(loser, 5);
 
 		await this.triggerTotalGamesAchievement(winner, 1000);
 		await this.triggerTotalGamesAchievement(loser, 1000);

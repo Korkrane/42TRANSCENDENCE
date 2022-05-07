@@ -17,7 +17,8 @@ export interface ListChannelsProps {
 	activeName?: string,
 	socket?: any,
 	setHide?: any,
-	setIsBanned?: any
+	setIsBanned?: any,
+	login42: any
 }
 
 export default function ListChannels(props: ListChannelsProps) {
@@ -99,6 +100,7 @@ export default function ListChannels(props: ListChannelsProps) {
 											isChan={props.isChan}
 											channel={channel}
 											login={props.login}
+											login42={props.login42}
 											setHasPass={props.setHasPass}
 											setActiveID={props.setActiveID}
 											setActiveName={props.setActiveName}

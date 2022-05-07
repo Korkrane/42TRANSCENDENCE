@@ -5,7 +5,8 @@ export interface DisplayChanProps {
 	channel?: any;
 	isChan?: boolean,
 	minId?: any,
-	login: string,
+	login?: string,
+	login42?: string,
 	setHasPass?: any,
 	setActiveID?: any,
 	setActiveName?: any
@@ -24,17 +25,16 @@ export default function DisplayChan(props: DisplayChanProps) {
 	const [receiver, setReceiver] = React.useState("");
 
 	useEffect(() => {
+
 		if (props.direct === true) {
-			if (props.channel.participates[0].login == props.login && props.login != null) {
+			if ((props.channel.participates[0].login == props.login && props.login != null) || (props.login42 == props.channel.participates[0].login)) {
 				props.setActiveName(props.channel.participates[1].login);
-				setReceiver(props.channel.participates[1].login)
+				setReceiver(props.channel.participates[1].login);
 			}
-			else if (props.login != "null" && props.channel.participates[0].login != null) {
+			else 
+			{
 				props.setActiveName(props.channel.participates[0].login);
 				setReceiver(props.channel.participates[0].login);
-			}
-			else {
-				setReceiver("dummy");
 			}
 		}
 		setLoad(true);
