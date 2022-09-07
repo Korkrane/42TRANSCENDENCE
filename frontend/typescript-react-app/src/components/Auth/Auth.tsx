@@ -33,14 +33,15 @@ export default function Auth() {
                         <>
                             <div id="auth-form-div" className="col-8">
                                 <div id="auth--form1" className="row d-flex justify-content-center">
-                                    <br />
+                                    {/* <br /> */}
                                     <div id="form--auth1" className="row d-flex justify-content-center">
                                         <p id="jouer">Pour jouer, vous devez vous authentifier 🏓 </p>
-                                        <FourtyTwo />
+                                        <p style={{color: "grey", textAlign: "center"}}><i>42 Auth has been commented for testing purposes</i></p>
+                                        {/* <FourtyTwo /> */}
                                         <br />
-                                        {/* <Signup />
+                                        <Signup />
                                         <br />
-                                        <Login /> */}
+                                        <Login />
                                     </div>
                                 </div>
                             </div>

@@ -80,6 +80,7 @@ class Signup extends React.Component<SignupProps, SignupState>
                                 <form>
                                     <div>
                                         <label>Mot de passe</label>
+                                        <p style={{color: "red"}}><i>Use a long enough password with no special characters</i></p>
                                         <input
                                             className="form-control"
                                             type="password"

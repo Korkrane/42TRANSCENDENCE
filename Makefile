@@ -4,7 +4,6 @@ COMPOSE 		= docker-compose
 .PHONY: all build up down pause unpause clean fclean re
 
 all		:
-			./start.sh
 			cat .env
 			$(COMPOSE) up --build
 
